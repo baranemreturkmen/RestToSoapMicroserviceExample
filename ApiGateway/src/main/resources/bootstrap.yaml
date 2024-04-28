@@ -1,0 +1,26 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:password@localhost:8761/eureka
+    enabled: true
+
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes[0]:
+        id: RestMicroservice
+        uri: lb://RestMicroservice
+        predicates[0]: Path=/api/RestMicroservice
+      routes[1]:
+        id: SoapMicroservice
+        uri: lb://SoapMicroservice
+        predicates[0]: Path=/api/SoapMicroservice
+      routes[2]:
+        id: DiscoveryServer
+        uri: http://localhost:8761
+        predicates[0]: Path=/eureka/**
+
+server:
+  port: 9090
