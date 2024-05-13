@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    jaxb //Only for generation purpose
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -26,14 +30,14 @@ dependencies {
     //implementation 'org.apache.ant:org.apache.ant:1.7.0'
     implementation 'com.sun.istack:istack-commons-runtime:4.2.0'
     implementation 'org.apache.ant:ant:1.8.2'
+
+    jaxb 'com.sun.xml.bind:jaxb-xjc:3.0.0'
+    jaxb 'com.sun.xml.bind:jaxb-impl:3.0.0'
+    jaxb 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
 }
 
 test {
     useJUnitPlatform()
-}
-
-configurations {
-    jaxb //Only for generation purpose
 }
 
 task generateSources() {
@@ -46,9 +50,9 @@ task generateSources() {
             taskdef (name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.jaxb.asPath)
             xjc(
                     destdir: "${jaxbTargetDir}",
-                    schema: "${projectDir}/src/main/resources/countries.xsd",
-                    binding: "${projectDir}/src/main/resources/jaxb-bindings.xjb",
-                    countries: "${projectDir}/src/main/resources/countries.xml",
+                    schema: "${projectDir}/src/main/resources/countries.xml",
+                    //binding: "${projectDir}/src/main/resources/jaxb-bindings.xjb",
+                    //countries: "${projectDir}/src/main/resources/countries.xml",
                     removeOldOutput: 'yes', extension: 'true'
             )
                     {
