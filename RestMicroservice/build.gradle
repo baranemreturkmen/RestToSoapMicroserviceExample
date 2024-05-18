@@ -1,5 +1,3 @@
-//import org.codehaus.groovy.runtime.GStringImpl
-
 plugins {
     id 'java'
 }
@@ -27,7 +25,6 @@ dependencies {
     implementation 'com.sun.xml.bind:jaxb-impl:3.0.0'
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
     implementation 'jakarta.activation:jakarta.activation-api:2.0.1'
-    //implementation 'org.apache.ant:org.apache.ant:1.7.0'
     implementation 'com.sun.istack:istack-commons-runtime:4.2.0'
     implementation 'org.apache.ant:ant:1.8.2'
 
@@ -51,8 +48,6 @@ task generateSources() {
             xjc(
                     destdir: "${jaxbTargetDir}",
                     schema: "${projectDir}/src/main/resources/countries.xml",
-                    //binding: "${projectDir}/src/main/resources/jaxb-bindings.xjb",
-                    //countries: "${projectDir}/src/main/resources/countries.xml",
                     removeOldOutput: 'yes', extension: 'true'
             )
                     {
