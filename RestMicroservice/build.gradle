@@ -40,7 +40,7 @@ test {
 task generateSources() {
     doLast {
         project.ant {
-            def jaxbTargetDir = "${buildDir}/generated/src/main/java"
+            def jaxbTargetDir = "${projectDir}/src/main/java"
 
             mkdir(dir: jaxbTargetDir)
 
