@@ -1,7 +1,7 @@
 package com.javaet.controller;
 
-import com.baeldung.springsoap.gen.GetCountryResponse;
 import com.javaet.service.CountryService;
+import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +19,8 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/getCountry")
-    public GetCountryResponse getCountryByCountryName(@PathVariable("countryName") String countryName){
+    @GetMapping("/getCountry/{countryName}")
+    public Response getCountryByCountryName(@PathVariable("countryName") String countryName){
         return countryService.getCountry(countryName);
     }
 
