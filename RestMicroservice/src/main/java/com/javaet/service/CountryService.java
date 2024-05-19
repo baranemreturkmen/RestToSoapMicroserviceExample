@@ -1,7 +1,9 @@
 package com.javaet.service;
 
+import com.baeldung.springsoap.gen.GetCountryResponse;
+
 public interface CountryService {
 
-    String GetCountryResponse(String countryName);
+    GetCountryResponse getCountry(String countryName);
 
 }
