@@ -31,16 +31,9 @@ dependencies {
     implementation 'javax.xml.ws:jaxws-api:2.3.1'
     implementation 'com.sun.xml.messaging.saaj:saaj-impl:1.5.3'
     implementation 'javax.xml.soap:javax.xml.soap-api:1.4.0'
-    //implementation 'org.jboss.resteasy:resteasy-client:3.15.6.Final'
-    //implementation 'org.jboss.resteasy:resteasy-jaxrs:3.15.6.Final'
-    //implementation 'org.jboss.resteasy:resteasy-servlet-initializer:3.15.6.Final'
     implementation 'org.glassfish.jersey.core:jersey-common:3.1.2'
 
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
-    // Jakarta EE dependencies
-    //implementation 'jakarta.ws.rs:jakarta.ws.rs-api:2.1.6'
-    //implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
 
     jaxb 'com.sun.xml.bind:jaxb-xjc:3.0.0'
     jaxb 'com.sun.xml.bind:jaxb-impl:3.0.0'
