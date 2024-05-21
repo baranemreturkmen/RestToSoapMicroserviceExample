@@ -1,10 +1,7 @@
 package com.javaet.controller;
 
-import com.javaet.dto.CountryDto;
 import com.javaet.response.ErrorResponse;
 import com.javaet.service.CountryService;
-import jakarta.ws.rs.core.Response;
-import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
