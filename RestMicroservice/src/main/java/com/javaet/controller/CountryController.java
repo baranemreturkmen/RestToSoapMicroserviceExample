@@ -1,8 +1,10 @@
 package com.javaet.controller;
 
+import com.javaet.dto.CountryDto;
 import com.javaet.service.CountryService;
 import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +21,10 @@ public class CountryController {
         this.countryService = countryService;
     }
 
+    //TODO: ResponsEntity ile kullan veya kendin yaz.
     @GetMapping("/getCountry/{countryName}")
-    public Response getCountryByCountryName(@PathVariable("countryName") String countryName){
-        return (Response) countryService.getCountry(countryName).getEntity();
-        //Şuan burada hata var! Dönüş tipiyle ilgili. TODO: Dto dön!
+    public CountryDto getCountryByCountryName(@PathVariable("countryName") String countryName){
+        return countryService.getCountry(countryName);
     }
 
 }

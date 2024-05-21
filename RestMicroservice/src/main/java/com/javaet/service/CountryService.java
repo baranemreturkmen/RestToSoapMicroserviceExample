@@ -1,9 +1,10 @@
 package com.javaet.service;
 
+import com.javaet.dto.CountryDto;
 import jakarta.ws.rs.core.Response;
 
 public interface CountryService {
 
-    Response getCountry(String countryName);
+    CountryDto getCountry(String countryName);
 
 }
