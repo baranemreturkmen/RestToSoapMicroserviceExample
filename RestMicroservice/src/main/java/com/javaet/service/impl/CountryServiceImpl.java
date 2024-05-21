@@ -10,7 +10,6 @@ import javax.xml.soap.*;
 @Service
 public class CountryServiceImpl implements CountryService {
 
-    //TODO: soap servisi null gelmesi durumunda hata yönetimi yap!
     @Override
     public CountryDto getCountry(String countryName) {
         Node countryNode = null;
@@ -112,7 +111,7 @@ public class CountryServiceImpl implements CountryService {
             }
         return CountryDto.builder().countryName(name).population(population).capital(capital).currency(currency).build();
     }
-        return CountryDto.builder().build();
+        return null;
     }
 
 }
