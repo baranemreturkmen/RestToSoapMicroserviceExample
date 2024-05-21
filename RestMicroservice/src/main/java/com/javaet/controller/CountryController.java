@@ -21,7 +21,8 @@ public class CountryController {
 
     @GetMapping("/getCountry/{countryName}")
     public Response getCountryByCountryName(@PathVariable("countryName") String countryName){
-        return countryService.getCountry(countryName);
+        return (Response) countryService.getCountry(countryName).getEntity();
+        //Şuan burada hata var! Dönüş tipiyle ilgili. TODO: Dto dön!
     }
 
 }
